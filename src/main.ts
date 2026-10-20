@@ -1,16 +1,11 @@
 import './style.css'
-import heroImg from './assets/hero.png'
-import typescriptLogo from './assets/typescript.svg'
-import viteLogo from './assets/vite.svg'
 import { setupCounter } from './counter.ts'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
+
+<h1></h1>
+
 <section id="center">
-  <div class="hero">
-    <img src="${heroImg}" class="base" width="170" height="179">
-    <img src="${typescriptLogo}" class="framework" alt="TypeScript logo"/>
-    <img src="${viteLogo}" class="vite" alt="Vite logo" />
-  </div>
   <div>
     <h1>Get started</h1>
     <p>Edit <code>src/main.ts</code> and save to test <code>HMR</code></p>
@@ -27,16 +22,10 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <p>Your questions, answered</p>
     <ul>
       <li>
-        <a href="https://vite.dev/" target="_blank">
-          <img class="logo" src="${viteLogo}" alt="" />
           Explore Vite
-        </a>
       </li>
       <li>
-        <a href="https://www.typescriptlang.org" target="_blank">
-          <img class="button-icon" src="${typescriptLogo}" alt="">
           Learn more
-        </a>
       </li>
     </ul>
   </div>

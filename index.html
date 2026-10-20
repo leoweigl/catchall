@@ -1,21 +1,70 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="/src/style.css" rel="stylesheet">
-    <title>catchall</title>
-  </head>
-  <body>
-    <h1 class="text-3xl font-bold">
-      Hello world!
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="/src/style.css" rel="stylesheet">
+  <title>catchall</title>
+</head>
+
+<body>
+  <section>
+
+    <nav>
+
+    </nav>
+
+    <h1>
+      Catchall
     </h1>
-    
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
 
-    
+    <div>
+      <textarea>
+        what's on your mind?
+      </textarea>
 
-  </body>
+      <input type="button" value="OK">
+
+      <div>
+        <div>
+          <label for="now">
+            <input type="radio" name="urgency" value="now">
+            Now
+          </label><br>
+
+          <label for="soon">
+            <input type="radio" name="urgency" value="soon">
+            Soon
+          </label><br>
+
+          <label for="someday">
+            <input type="radio" name="urgency" value="someday">
+            Someday
+          </label><br>
+        </div>
+
+        <div>
+          <label for="heavy">
+            <input type="radio" name="weight" value="heavy">
+            Weighs on me
+          </label><br>
+
+          <label for="busy">
+            <input type="radio" name="weight" value="busy">
+            On my mind
+          </label><br>
+
+          <label for="light">
+            <input type="radio" name="weight" value="light">
+            No big deal
+          </label><br>
+        </div>
+      </div>
+    </div>
+
+
+  </section>
+</body>
+
 </html>
