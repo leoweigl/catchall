@@ -4,67 +4,105 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="/src/style.css" rel="stylesheet">
   <title>catchall</title>
+  <script type="module" src="/src/main.ts"></script>
 </head>
 
 <body>
-  <section>
 
-    <nav>
-
-    </nav>
+  <header>
 
     <h1>
       Catchall
     </h1>
 
-    <div>
-      <textarea>
-        what's on your mind?
-      </textarea>
+    <button type="button">Review</button>
 
-      <input type="button" value="OK">
+  </header>
 
-      <div>
-        <div>
-          <label for="now">
-            <input type="radio" name="urgency" value="now">
-            Now
-          </label><br>
+  <main>
 
-          <label for="soon">
-            <input type="radio" name="urgency" value="soon">
-            Soon
-          </label><br>
+    <form>
 
-          <label for="someday">
-            <input type="radio" name="urgency" value="someday">
-            Someday
-          </label><br>
-        </div>
+      <label>
+        <textarea name="thoughts" placeholder="what's on your mind?"></textarea>
+        Input your thoughts here.
+      </label>
 
-        <div>
-          <label for="heavy">
-            <input type="radio" name="weight" value="heavy">
-            Weighs on me
-          </label><br>
+      <fieldset>
 
-          <label for="busy">
-            <input type="radio" name="weight" value="busy">
-            On my mind
-          </label><br>
+        <legend>Urgency</legend>
 
-          <label for="light">
-            <input type="radio" name="weight" value="light">
-            No big deal
-          </label><br>
-        </div>
-      </div>
-    </div>
+        <label>
+          <input type="radio" name="urgency" value="now">
+          Now
+        </label>
 
+        <label>
+          <input type="radio" name="urgency" value="soon">
+          Soon
+        </label>
 
-  </section>
+        <label>
+          <input type="radio" name="urgency" value="someday">
+          Someday
+        </label>
+
+      </fieldset>
+
+      <fieldset>
+
+        <legend>Weight</legend>
+
+        <label>
+          <input type="radio" name="weight" value="heavy">
+          Weighs on me
+        </label>
+
+        <label>
+          <input type="radio" name="weight" value="busy">
+          On my mind
+        </label>
+
+        <label>
+          <input type="radio" name="weight" value="light">
+          No big deal
+        </label>
+
+      </fieldset>
+
+      <fieldset>
+
+        <legend>Kind</legend>
+
+        <label>
+          <input type="radio" name="kind" value="idea">
+          Idea
+        </label>
+
+        <label>
+          <input type="radio" name="kind" value="worry">
+          Worry
+        </label>
+
+        <label>
+          <input type="radio" name="kind" value="reminder">
+          Reminder
+        </label>
+
+        <label>
+          <input type="radio" name="kind" value="question">
+          Question
+        </label>
+
+      </fieldset>
+
+      <input type="submit" value="Save">
+
+    </form>
+
+  </main>
+
 </body>
 
 </html>
