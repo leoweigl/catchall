@@ -8,97 +8,122 @@
   <script type="module" src="/src/main.ts"></script>
 </head>
 
-<body class="bg-indigo-100 text-slate-900">
+<body class="flex flex-col px-4 bg-mist-100 text-mist-800">
 
-  <header>
+  <header class="flex justify-between py-4">
 
-    <h1>
-      Catchall
+    <h1 class="text-2xl font-bold">
+      catchall
     </h1>
 
-    <button type="button">Review</button>
+    <button type="button"
+      class="bg-mist-300 hover:bg-mist-400 hover:cursor-pointer px-4 py-1 rounded-lg">Review</button>
 
   </header>
 
-  <main>
+  <main class="flex justify-center">
 
-    <form>
+    <form class="flex flex-col gap-4 w-full max-w-xl">
 
       <label>
-        Input your thoughts here.
         <textarea name="thoughts" placeholder="what's on your mind?"
-          class="bg-gray-50 text-slate-800 rounded-sm px-8 py-16"></textarea>
+        class="bg-amber-50 text-slate-800 rounded-2xl p-4 w-full h-32"></textarea>
+        <span class="sr-only">Your thoughts</span>
       </label>
 
-      <fieldset>
+      <fieldset class="min-w-0">
 
-        <legend>Urgency</legend>
+        <div class="flex flex-col gap-2">
 
-        <label>
-          <input type="radio" name="urgency" value="now">
-          Now
-        </label>
+          <p class="font-semibold">Urgency</p>
 
-        <label>
-          <input type="radio" name="urgency" value="soon">
-          Soon
-        </label>
+          <div class="flex gap-2 items-center flex-wrap">
 
-        <label>
-          <input type="radio" name="urgency" value="someday">
-          Someday
-        </label>
+            <label class="font-semibold px-4 py-2 rounded-xl bg-mist-300 hover:bg-mist-400">
+              <input type="radio" name="urgency" value="now" class="sr-only">
+              Now
+            </label>
 
-      </fieldset>
+            <label class="font-semibold px-4 py-2 rounded-xl bg-mist-300 hover:bg-mist-400">
+              <input type="radio" name="urgency" value="soon" class="sr-only">
+              Soon
+            </label>
 
-      <fieldset>
+            <label class="font-semibold px-4 py-2 rounded-xl bg-mist-300 hover:bg-mist-400">
+              <input type="radio" name="urgency" value="someday" class="sr-only">
+              Someday
+            </label>
 
-        <legend>Weight</legend>
+          </div>
 
-        <label>
-          <input type="radio" name="weight" value="heavy">
-          Weighs on me
-        </label>
-
-        <label>
-          <input type="radio" name="weight" value="busy">
-          On my mind
-        </label>
-
-        <label>
-          <input type="radio" name="weight" value="light">
-          No big deal
-        </label>
+        </div>
 
       </fieldset>
 
-      <fieldset>
+      <fieldset class="min-w-0">
 
-        <legend>Kind</legend>
+        <div class="flex flex-col gap-2">
 
-        <label>
-          <input type="radio" name="kind" value="idea">
-          Idea
-        </label>
+          <p class="font-semibold">Weight</p>
 
-        <label>
-          <input type="radio" name="kind" value="worry">
-          Worry
-        </label>
+          <div class="flex gap-4 items-center flex-wrap">
 
-        <label>
-          <input type="radio" name="kind" value="reminder">
-          Reminder
-        </label>
+            <label class="font-semibold px-4 py-2 rounded-xl bg-mist-300 hover:bg-mist-400">
+              <input type="radio" name="weight" value="heavy" class="sr-only">
+              Weighs on me
+            </label>
 
-        <label>
-          <input type="radio" name="kind" value="question">
-          Question
-        </label>
+            <label class="font-semibold px-4 py-2 rounded-xl bg-mist-300 hover:bg-mist-400">
+              <input type="radio" name="weight" value="busy" class="sr-only">
+              On my mind
+            </label>
+
+            <label class="font-semibold px-4 py-2 rounded-xl bg-mist-300 hover:bg-mist-400">
+              <input type="radio" name="weight" value="light" class="sr-only">
+              No big deal
+            </label>
+
+          </div>
+
+        </div>
 
       </fieldset>
 
-      <input type="submit" value="Save" class="bg-indigo-950 text-slate-50 px-2 py-1 rounded-sm">
+      <fieldset class="min-w-0">
+
+        <div class="flex flex-col gap-2">
+
+          <p class="font-semibold">Kind</p>
+
+          <div class="flex gap-4 items-center flex-wrap">
+
+            <label class="font-semibold px-4 py-2 rounded-xl bg-mist-300 hover:bg-mist-400">
+              <input type="radio" name="kind" value="idea" class="sr-only">
+              Idea
+            </label>
+
+            <label class="font-semibold px-4 py-2 rounded-xl bg-mist-300 hover:bg-mist-400">
+              <input type="radio" name="kind" value="worry" class="sr-only">
+              Worry
+            </label>
+
+            <label class="font-semibold px-4 py-2 rounded-xl bg-mist-300 hover:bg-mist-400">
+              <input type="radio" name="kind" value="reminder" class="sr-only">
+              Reminder
+            </label>
+
+            <label class="font-semibold px-4 py-2 rounded-xl bg-mist-300 hover:bg-mist-400">
+              <input type="radio" name="kind" value="question" class="sr-only">
+              Question
+            </label>
+
+          </div>
+
+        </div>
+
+      </fieldset>
+
+      <input type="submit" value="Save" class="bg-mist-300 hover:bg-mist-400 rounded-2xl text-center py-2">
 
     </form>
 
