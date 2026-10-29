@@ -1,47 +1,34 @@
-import type { Option } from "../types";
+import type { OptionGroup } from "../types";
 
-export function chipGroup(title: string, name: string, options: Option[]): HTMLFieldSetElement {
+export function chipGroup(optionGroup: OptionGroup): HTMLFieldSetElement {
+  const fieldset = document.createElement("fieldset");
+  fieldset.className = "min-w-0";
 
+  const optionTitle = document.createElement("legend");
+  optionTitle.className = "font-semibold mb-1";
+  optionTitle.textContent = optionGroup.title;
 
-    let s = `<fieldset class="min-w-0">
+  const optionDiv = document.createElement("div");
+  optionDiv.className = "flex gap-2 items-center flex-wrap";
 
-        <div class="flex flex-col gap-2">
+  fieldset.append(optionTitle);
+  fieldset.append(optionDiv);
 
-          <p class="font-semibold">Weight</p>
+  optionGroup.optionValues.forEach((option) => {
+    const label = document.createElement("label");
+    const chip = document.createElement("input");
 
-          <div class="flex gap-2 items-center flex-wrap">
+    label.className = "px-3 py-2 rounded-xl bg-mist-300 hover:bg-mist-400 hover:cursor-pointer has-checked:bg-mist-500 has-checked:text-slate-100 has-focus-visible:ring-2 has-focus-visible:ring-orange-600";
+    label.textContent = option.text;
+    
+    chip.className = "sr-only";
+    chip.type = "radio";
+    chip.name = optionGroup.name;
+    chip.value = option.value;
 
-            <label
-              class="px-3 py-2 rounded-xl bg-mist-300 hover:bg-mist-400 hover:cursor-pointer has-checked:bg-mist-500 has-checked:text-slate-100 has-focus-visible:ring-2 has-focus-visible:ring-orange-600">
-              <input type="radio" name="weight" value="heavy" class="sr-only">
-              Heavy
-            </label>
+    optionDiv.append(label);
+    label.append(chip);
+  });
 
-            <label
-              class="px-3 py-2 rounded-xl bg-mist-300 hover:bg-mist-400 hover:cursor-pointer has-checked:bg-mist-500 has-checked:text-slate-100 has-focus-visible:ring-2 has-focus-visible:ring-orange-600">
-              <input type="radio" name="weight" value="medium" class="sr-only">
-              On my mind
-            </label>
-
-            <label
-              class="px-3 py-2 rounded-xl bg-mist-300 hover:bg-mist-400 hover:cursor-pointer has-checked:bg-mist-500 has-checked:text-slate-100 has-focus-visible:ring-2 has-focus-visible:ring-orange-600">
-              <input type="radio" name="weight" value="light" class="sr-only">
-              No big deal
-            </label>
-
-          </div>
-
-        </div>
-
-      </fieldset>`
-
-    const fieldset = document.createElement("fieldset");
-    fieldset.className = "min-w-0";
-
-    const div = document.createElement("div");
-    div.className = "flex flex-col gap-2";
-
-    fieldset.append(div)
-
-    return fieldset;
+  return fieldset;
 }

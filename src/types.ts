@@ -1,10 +1,36 @@
-export type Urgency = "now" | "soon" | "someday";
-export type Weight = "heavy" | "medium" | "light";
-export type Kind = "idea" | "worry" | "reminder" | "question";
+export const URGENCY = {
+    title: "Urgency",
+    name: "urgency",
+    optionValues: [
+        { value: "now", text: "Now" },
+        { value: "soon", text: "Soon" },
+        { value: "someday", text: "Someday" },
+    ]
+} as const;
 
-export type ChipOptionValue = Urgency | Weight | Kind
+export const WEIGHT = {
+    title: "Weight",
+    name: "weight",
+    optionValues: [
+        { value: "heavy", text: "Heavy" },
+        { value: "medium", text: "On my mind" },
+        { value: "light", text: "No big deal" }
+    ]
+} as const;
 
-export type Option = {
-    value: ChipOptionValue,
-    text: string
-};
+export const KIND = {
+    title: "Kind",
+    name: "kind",
+    optionValues: [
+        { value: "idea", text: "Idea" },
+        { value: "worry", text: "Worry" },
+        { value: "reminder", text: "Reminder" },
+        { value: "question", text: "Question" }
+    ]
+} as const;
+
+export type UrgencyGroup = typeof URGENCY;
+export type WeightGroup = typeof WEIGHT;
+export type KindGroup = typeof KIND;
+
+export type OptionGroup = UrgencyGroup | WeightGroup | KindGroup;
