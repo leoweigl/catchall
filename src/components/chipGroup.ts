@@ -18,9 +18,9 @@ export function chipGroup(optionGroup: OptionGroup): HTMLFieldSetElement {
     const label = document.createElement("label");
     const chip = document.createElement("input");
 
-    label.className = "px-3 py-2 rounded-xl bg-mist-300 hover:bg-mist-400 hover:cursor-pointer has-checked:bg-mist-500 has-checked:text-slate-100 has-focus-visible:ring-2 has-focus-visible:ring-orange-600";
+    label.className = "px-3 py-2 rounded-xl bg-mist-300 shadow-sm hover:bg-mist-400 hover:cursor-pointer has-checked:bg-mist-700 has-checked:text-slate-100 has-focus-visible:ring-2 has-focus-visible:ring-orange-600";
     label.textContent = option.text;
-    
+
     chip.className = "sr-only";
     chip.type = "radio";
     chip.name = optionGroup.name;

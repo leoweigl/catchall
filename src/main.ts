@@ -1,13 +1,12 @@
 import './style.css'
-import { URGENCY, WEIGHT, KIND } from './types';
-import { chipGroup } from './components/chip-group';
 
-const optionContainer = document.getElementById("optionContainer");
+import { captureForm } from './components/captureForm';
+import { header } from './components/header';
 
-if (optionContainer == null) {
-    throw new Error("no optionContainer found");
-}
+const app = document.getElementById("app");
+const main = document.createElement("main");
+main.className = "flex justify-center";
 
-[URGENCY, WEIGHT, KIND].forEach(group => {
-    optionContainer.append(chipGroup(group));
-});
+app?.append(header());
+app?.append(main);
+main?.append(captureForm());
