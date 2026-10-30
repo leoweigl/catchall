@@ -3,6 +3,7 @@ export function captureArea(): HTMLLabelElement {
     const captureArea = document.createElement("textarea");
     const span = document.createElement("span")
 
+    captureArea.id = "captureArea";
     captureArea.name = "thoughts";
     captureArea.placeholder = "what's on your mind?";
     captureArea.className = "resize-none shadow-md font-semibold shadow-mist-300 bg-orange-50 text-slate-900 rounded-xl p-4 w-full h-32 overflow-auto";

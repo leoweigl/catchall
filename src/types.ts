@@ -1,36 +1,20 @@
-export const URGENCY = {
-    title: "Urgency",
-    name: "urgency",
-    optionValues: [
-        { value: "now", text: "Now" },
-        { value: "soon", text: "Soon" },
-        { value: "someday", text: "Someday" },
-    ]
-} as const;
+import type { URGENCY, WEIGHT, KIND } from "./data/optionGroup"
 
-export const WEIGHT = {
-    title: "Weight",
-    name: "weight",
-    optionValues: [
-        { value: "heavy", text: "Heavy" },
-        { value: "medium", text: "On my mind" },
-        { value: "light", text: "No big deal" }
-    ]
-} as const;
+export type OptionGroup = {
+    title: string,
+    name: string,
+    optionValues: readonly { value: string, text: string }[]
+}
 
-export const KIND = {
-    title: "Kind",
-    name: "kind",
-    optionValues: [
-        { value: "idea", text: "Idea" },
-        { value: "worry", text: "Worry" },
-        { value: "reminder", text: "Reminder" },
-        { value: "question", text: "Question" }
-    ]
-} as const;
+export type Thought = {
+    id: string,
+    text: string,
+    createdAt: string,
+    urgency?: Urgency,
+    weight?: Weight,
+    kind?: Kind
+}
 
-export type UrgencyGroup = typeof URGENCY;
-export type WeightGroup = typeof WEIGHT;
-export type KindGroup = typeof KIND;
-
-export type OptionGroup = UrgencyGroup | WeightGroup | KindGroup;
+export type Urgency = typeof URGENCY.optionValues[number]["value"];
+export type Weight = typeof WEIGHT.optionValues[number]["value"];
+export type Kind = typeof KIND.optionValues[number]["value"];

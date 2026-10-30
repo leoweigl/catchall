@@ -1,4 +1,5 @@
-import { URGENCY, WEIGHT, KIND } from '../types';
+import { optionGroupList } from "../data/optionGroup";
+import { handleSubmit } from "../handleSubmit";
 
 import { captureArea } from "./captureArea";
 import { chipGroup } from './chipGroup';
@@ -15,11 +16,12 @@ export function captureForm(): HTMLFormElement {
     form.append(captureArea());
     form.append(div);
 
-    [URGENCY, WEIGHT, KIND].forEach(group => {
+    optionGroupList.forEach(group => {
         div.append(chipGroup(group));
     });
 
     form.append(dropItButton());
+    form.addEventListener("submit", handleSubmit);
 
     return form;
 }
