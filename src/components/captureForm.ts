@@ -4,10 +4,11 @@ import { handleSubmit } from "../handleSubmit";
 import { captureArea } from "./captureArea";
 import { chipGroup } from './chipGroup';
 import { dropItButton } from './dropItButton';
+import { errorSpace } from "./errorSpace";
 
 export function captureForm(): HTMLFormElement {
     const form = document.createElement("form");
-    form.className = "flex flex-col gap-2 w-full max-w-xl";
+    form.className = "flex flex-col gap-2";
 
     const div = document.createElement("div")
 
@@ -21,7 +22,9 @@ export function captureForm(): HTMLFormElement {
     });
 
     form.append(dropItButton());
-    form.addEventListener("submit", handleSubmit);
+    form.append(errorSpace());
+
+    form.addEventListener("submit", (event: SubmitEvent) => handleSubmit(event));
 
     return form;
 }

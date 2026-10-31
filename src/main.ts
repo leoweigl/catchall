@@ -5,8 +5,11 @@ import { header } from './components/header';
 
 const app = document.getElementById("app");
 const main = document.createElement("main");
-main.className = "flex justify-center";
+main. className = "w-full md:max-w-xl lg:max-w-3xl";
 
-app?.append(header());
-app?.append(main);
-main?.append(captureForm());
+if (app instanceof HTMLBodyElement) {
+    app.className = "flex flex-col items-center px-6 bg-mist-200 text-black";
+    app.append(header())
+    app.append(main);
+    main.append(captureForm());
+}

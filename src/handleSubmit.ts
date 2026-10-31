@@ -1,15 +1,22 @@
 import type { Thought } from "./types"
+import { buildThought } from "./buildThought";
+import { saveThought } from "./saveThought";
+import { displayError } from "./displayError";
 
-export function handleSubmit() {
-    
-    const formData: FormData = document.getElementById("form")?.
-
-    let thought: Thought = {
-        id = crypto.randomUUID,
-        text = document.getElementById("captureArea")?.textContent,
-        createdAt = Date.now(),
-        urgency = 
-        weight =
-        kind = document.getElementById("kind")?.
-    };
+export function handleSubmit(event: SubmitEvent) {
+    if (event.currentTarget instanceof HTMLFormElement) {
+        event.preventDefault();
+        const data = new FormData(event.currentTarget);
+        let thought: Thought;
+        
+        try {
+            thought = buildThought(data);
+        } catch (err) {
+            if (err instanceof Error) {
+                displayError(err);
+            }
+        }
+        
+        // saveThought(thought);
+    }
 }
