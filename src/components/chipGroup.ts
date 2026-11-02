@@ -1,6 +1,7 @@
 import type { OptionGroup } from "../types";
 
-export function chipGroup(optionGroup: OptionGroup): HTMLFieldSetElement {
+export function chipGroup(optionGroup: OptionGroup, form: HTMLFormElement): HTMLFieldSetElement {
+  let lastChecked: string | null = null;
   const fieldset = document.createElement("fieldset");
   fieldset.className = "min-w-0";
 
@@ -27,8 +28,21 @@ export function chipGroup(optionGroup: OptionGroup): HTMLFieldSetElement {
     chip.name = optionGroup.name;
     chip.value = option.value;
 
+    chip.addEventListener("click", () => {
+      if (lastChecked === chip.value) {
+        chip.checked = false;
+        lastChecked = null;
+      } else {
+        lastChecked = chip.value;
+      }
+    });
+
     optionDiv.append(label);
     label.append(chip);
+  });
+
+  form.addEventListener("reset", () => {
+    lastChecked = null;
   });
 
   return fieldset;

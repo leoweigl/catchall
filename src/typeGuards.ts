@@ -1,5 +1,5 @@
 import { KIND, URGENCY, WEIGHT } from "./data/optionGroup";
-import type { Kind, OptionGroup, Urgency, Weight } from "./types";
+import type { Kind, OptionGroup, Urgency, Weight, Thought } from "./types";
 
 export function isUrgency(value: unknown): value is Urgency {
     return isOptionValue(value, URGENCY);
@@ -15,4 +15,8 @@ export function isKind(value: unknown): value is Kind {
 
 function isOptionValue(value: unknown, optionGroup: OptionGroup) {
     return optionGroup.optionValues.some(o => o.value === value);
+}
+
+export function isThoughtList(value: unknown): value is Thought[] {
+    
 }

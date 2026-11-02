@@ -1,5 +1,5 @@
 import { isKind, isUrgency, isWeight } from "./typeGuards";
-import type { Thought, Urgency } from "./types";
+import type { Thought } from "./types";
 
 export function buildThought(data: FormData): Thought {
     const text = data.get("thought");

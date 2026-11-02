@@ -18,7 +18,7 @@ export function captureForm(): HTMLFormElement {
     form.append(div);
 
     optionGroupList.forEach(group => {
-        div.append(chipGroup(group));
+        div.append(chipGroup(group, form));
     });
 
     form.append(dropItButton());
