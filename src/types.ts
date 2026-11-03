@@ -9,7 +9,7 @@ export type OptionGroup = {
 export type Thought = {
     id: string,
     text: string,
-    createdAt: string,
+    createdAt: number,
     urgency?: Urgency,
     weight?: Weight,
     kind?: Kind

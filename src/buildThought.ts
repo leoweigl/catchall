@@ -14,7 +14,7 @@ export function buildThought(data: FormData): Thought {
     return {
         id: crypto.randomUUID(),
         text: text,
-        createdAt: Date.now().toString(),
+        createdAt: Date.now(),
         urgency: isUrgency(urgency) ? urgency : undefined,
         weight: isWeight(weight) ? weight : undefined,
         kind: isKind(kind) ? kind : undefined

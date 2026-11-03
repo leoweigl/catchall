@@ -18,5 +18,41 @@ function isOptionValue(value: unknown, optionGroup: OptionGroup) {
 }
 
 export function isThoughtList(value: unknown): value is Thought[] {
-    
+    if (!Array.isArray(value)) {
+        return false;
+    }
+
+    return value.every(isThought);
+}
+
+function isThought(value: unknown): value is Thought {
+    if (value === null || typeof value !== "object") {
+        return false;
+    }
+
+    if (!("id" in value) || typeof value.id !== "string") {
+        return false;
+    }
+
+    if (!("text" in value) || typeof value.text !== "string") {
+        return false;
+    }
+
+    if (!("createdAt" in value) || typeof value.createdAt !== "number") {
+        return false;
+    }
+
+    if ("urgency" in value && !isUrgency(value.urgency)) {
+        return false;
+    }
+
+    if ("weight" in value && !isWeight(value.weight)) {
+        return false;
+    }
+
+    if ("kind" in value && !isKind(value.kind)) {
+        return false;
+    }
+
+    return true;
 }
