@@ -1,6 +1,6 @@
 import './style.css'
 
-import { captureForm } from './components/captureForm';
+import { captureForm } from './screens/capture/captureForm';
 import { header } from './components/header';
 
 const app = document.getElementById("app");

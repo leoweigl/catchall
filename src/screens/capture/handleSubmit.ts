@@ -1,6 +1,7 @@
 import { buildThought } from "./buildThought";
-import { saveThought } from "./saveThought";
-import { displayError } from "./displayError";
+import { saveThought } from "../../data/saveThought";
+import { displayError } from "../../lib/displayError";
+import { displayToast } from "../../lib/displayToast";
 
 export function handleSubmit(event: SubmitEvent) {
     if (event.currentTarget instanceof HTMLFormElement) {
@@ -10,6 +11,7 @@ export function handleSubmit(event: SubmitEvent) {
         try {
             const thought = buildThought(data);
             saveThought(thought);
+            displayToast("Your thought was saved!", false);
             event.currentTarget.reset();
         } catch (err) {
             if (err instanceof Error) {

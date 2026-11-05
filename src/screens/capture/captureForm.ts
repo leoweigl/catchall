@@ -1,10 +1,10 @@
-import { optionGroupList } from "../data/optionGroup";
-import { handleSubmit } from "../handleSubmit";
+import { optionGroupList } from "../../data/optionGroup";
+import { handleSubmit } from "./handleSubmit";
 
 import { captureArea } from "./captureArea";
-import { chipGroup } from './chipGroup';
-import { dropItButton } from './dropItButton';
-import { errorSpace } from "./errorSpace";
+import { chipGroup } from '../../components/chipGroup';
+import { dropItButton } from '../../components/dropItButton';
+import { toastSpace } from "../../components/toastSpace";
 
 export function captureForm(): HTMLFormElement {
     const form = document.createElement("form");
@@ -22,7 +22,7 @@ export function captureForm(): HTMLFormElement {
     });
 
     form.append(dropItButton());
-    form.append(errorSpace());
+    form.append(toastSpace());
 
     form.addEventListener("submit", (event: SubmitEvent) => handleSubmit(event));
 

@@ -1,5 +1,5 @@
-import { KIND, URGENCY, WEIGHT } from "./data/optionGroup";
-import type { Kind, OptionGroup, Urgency, Weight, Thought } from "./types";
+import { KIND, URGENCY, WEIGHT } from "../data/optionGroup";
+import type { Kind, OptionGroup, Urgency, Weight, Thought } from "../types";
 
 export function isUrgency(value: unknown): value is Urgency {
     return isOptionValue(value, URGENCY);

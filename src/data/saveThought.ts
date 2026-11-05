@@ -1,5 +1,5 @@
-import { isThoughtList } from "./typeGuards";
-import type { Thought } from "./types";
+import { isThoughtList } from "../lib/typeGuards";
+import type { Thought } from "../types";
 
 export function saveThought(thought: Thought) {
     let thoughts: Thought[] = [];
