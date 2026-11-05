@@ -7,7 +7,7 @@ export function handleSubmit(event: SubmitEvent) {
     if (event.currentTarget instanceof HTMLFormElement) {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-        
+
         try {
             const thought = buildThought(data);
             saveThought(thought);

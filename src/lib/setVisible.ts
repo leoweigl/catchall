@@ -1,4 +1,4 @@
-export function setVisible(element: HTMLElement, visible: boolean) {
+export function setVisible(element: HTMLElement, visible: boolean) {   
     if (element instanceof HTMLElement) {
         if (visible) {
             element.classList.remove("opacity-0");
