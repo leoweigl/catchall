@@ -31,4 +31,15 @@ export const KIND = {
     ]
 } as const satisfies OptionGroup;
 
+export const DECISION = {
+    title: "Decision",
+    name: "decision",
+    optionValues: [
+        { value: "do", text: "Do" },
+        { value: "clarify", text: "Clarify" },
+        { value: "release", text: "Release" },
+        { value: "discuss", text: "Discuss" }
+    ]
+} as const satisfies OptionGroup;
+
 export const optionGroupList: OptionGroup[] = [URGENCY, WEIGHT, KIND];

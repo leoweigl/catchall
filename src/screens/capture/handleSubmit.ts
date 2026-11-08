@@ -1,5 +1,5 @@
 import { buildThought } from "./buildThought";
-import { saveThought } from "../../data/saveThought";
+import { saveNewThought } from "../../storage/saveNewThought";
 import { displayError } from "../../lib/displayError";
 import { displayToast } from "../../lib/displayToast";
 
@@ -10,7 +10,7 @@ export function handleSubmit(event: SubmitEvent) {
 
         try {
             const thought = buildThought(data);
-            saveThought(thought);
+            saveNewThought(thought);
             displayToast("Your thought was saved!", false);
             event.currentTarget.reset();
         } catch (err) {

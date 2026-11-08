@@ -7,8 +7,8 @@ export function buildThought(data: FormData): Thought {
     const weight = data.get("weight");
     const kind = data.get("kind");
 
-    if (typeof text !== "string" || text.length == 0) {
-        throw Error("Thought can't be empty.");
+    if (typeof text !== "string" || text.trim().length === 0) {
+        throw new Error("Thought can't be empty.");
     }
     
     return {

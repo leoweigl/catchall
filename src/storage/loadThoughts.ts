@@ -1,9 +1,11 @@
 import { isThoughtList } from "../lib/typeGuards";
 import type { Thought } from "../types";
+import { STORAGE_KEY } from "./storageKey";
 
-export function saveThought(thought: Thought) {
+export function loadThoughts(): Thought[] {
     let thoughts: Thought[] = [];
-    const raw = localStorage.getItem("catchall.thoughts");
+
+    const raw = localStorage.getItem(STORAGE_KEY);
 
     if (raw !== null) {
         const parsed: unknown = JSON.parse(raw);
@@ -14,10 +16,6 @@ export function saveThought(thought: Thought) {
             throw new Error("Loaded data is invalid");
         }
     }
-
-    thoughts.push(thought);
-
-    const data = JSON.stringify(thoughts);
     
-    localStorage.setItem("catchall.thoughts", data);
+    return thoughts;
 }

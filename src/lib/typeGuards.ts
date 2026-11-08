@@ -1,5 +1,5 @@
-import { KIND, URGENCY, WEIGHT } from "../data/optionGroup";
-import type { Kind, OptionGroup, Urgency, Weight, Thought } from "../types";
+import { DECISION, KIND, URGENCY, WEIGHT } from "../data/optionGroup";
+import type { Kind, OptionGroup, Urgency, Weight, Thought, Decision } from "../types";
 
 export function isUrgency(value: unknown): value is Urgency {
     return isOptionValue(value, URGENCY);
@@ -11,6 +11,10 @@ export function isWeight(value: unknown): value is Weight {
 
 export function isKind(value: unknown): value is Kind {
     return isOptionValue(value, KIND);
+}
+
+export function isDecision(value: unknown): value is Decision {
+    return isOptionValue(value, DECISION);
 }
 
 function isOptionValue(value: unknown, optionGroup: OptionGroup) {
@@ -51,6 +55,15 @@ function isThought(value: unknown): value is Thought {
     }
 
     if ("kind" in value && !isKind(value.kind)) {
+        return false;
+    }
+
+    if ("decision" in value && !isDecision(value.decision)) {
+        return false;
+    }
+
+    if ("closedAt" in value
+        && (typeof value.closedAt !== "number" || !("decision" in value))) {
         return false;
     }
 
