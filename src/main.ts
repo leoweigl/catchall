@@ -1,17 +1,39 @@
 import './style.css'
 
-import { captureForm } from './screens/capture/captureForm';
-import { header } from './components/header';
 import { toastSpace } from './components/toastSpace';
+import { header } from './components/header';
+import { navButton } from './components/navButton';
+import { REVIEW_ROUTE, CAPTURE_ROUTE } from './data/routes';
+import { captureForm } from './screens/capture/captureForm';
+import { reviewScreen } from './screens/review/reviewScreen';
 
-const app = document.getElementById("app");
+const body = document.body;
+const shell = document.createElement("div");
+shell.className = "w-full md:max-w-xl lg:max-w-3xl flex flex-col gap-4"
+const nav = navButton();
 const main = document.createElement("main");
-main.className = "w-full md:max-w-xl lg:max-w-3xl";
+const appHeader = header();
 
-if (app instanceof HTMLBodyElement) {
-    app.className = "flex flex-col items-center px-6 bg-mist-200 text-black";
-    app.append(header())
-    app.append(main);
-    main.append(captureForm());
-    main.append(toastSpace());
+body.append(shell);
+appHeader.append(nav);
+shell.append(appHeader, main, toastSpace());
+
+function switchView() {
+    const hash = location.hash;
+
+    if (hash === REVIEW_ROUTE.hash) {
+        nav.href = CAPTURE_ROUTE.hash;
+        nav.textContent = CAPTURE_ROUTE.text;
+
+        main.replaceChildren(reviewScreen());
+    } else {
+        nav.href = REVIEW_ROUTE.hash;
+        nav.textContent = REVIEW_ROUTE.text;
+
+        main.replaceChildren(captureForm());
+    }
 }
+
+switchView();
+
+window.addEventListener("hashchange", switchView);
