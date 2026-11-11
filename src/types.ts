@@ -2,7 +2,7 @@ import type { URGENCY, WEIGHT, KIND, DECISION } from "./data/optionGroup"
 
 export type OptionGroup = {
     title: string,
-    name: string,
+    name: Name,
     optionValues: readonly { value: string, text: string }[]
 }
 
@@ -21,3 +21,4 @@ export type Urgency = typeof URGENCY.optionValues[number]["value"];
 export type Weight = typeof WEIGHT.optionValues[number]["value"];
 export type Kind = typeof KIND.optionValues[number]["value"];
 export type Decision = typeof DECISION.optionValues[number]["value"];
+type Name = "urgency" | "weight" | "kind" | "decision";
